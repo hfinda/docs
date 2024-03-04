@@ -76,7 +76,7 @@ async def text_to_sql(text: str):
 
     # Call OpenAI
     stream = await client.chat.completions.create(
-        messages=[m.to_openai() for m in generation.messages], stream=True, **settings
+        messages=generation.messages, stream=True, **settings
     )
 
     current_step = cl.context.current_step
